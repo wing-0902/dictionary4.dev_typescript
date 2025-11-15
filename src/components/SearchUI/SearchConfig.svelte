@@ -1,13 +1,21 @@
 <script lang='ts'>
   let searchType: string = 'title';
+
+  function changeType(toWhat: string) {
+    searchType = toWhat;
+  }
 </script>
 
 <div class='root'>
   <div class='searchConfigRow'>
-    <button>
+    <button
+      on:click={() => changeType('title')}
+    >
       見出し
     </button>
-    <button>
+    <button
+      on:click={() => changeType('content')}
+    >
       用例・全文
     </button>
   </div>
