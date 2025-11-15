@@ -7,7 +7,7 @@
     new PagefindUI({
       element: ".search",
       showSubResults: true,
-      url: true,
+      baseUrl: "/content_search/",
       pageSize: 8,
     });
   });
