@@ -4,6 +4,8 @@
   function changeType(toWhich: boolean) {
     isTitle = toWhich;
   }
+
+  import PagefindConnector from "./PagefindConnector.svelte";
 </script>
 
 <div class='root'>
@@ -18,6 +20,9 @@
     >
       用例・全文
     </button>
+  </div>
+  <div class='pagefindSlot'>
+    <PagefindConnector isTitle={isTitle} />
   </div>
 </div>
 
