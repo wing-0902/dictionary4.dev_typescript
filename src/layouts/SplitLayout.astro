@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 
 import '../styles/globals.scss';
 
-import PagefindConnect from "../components/Search/PagefindConnect.vue";
+import SearchConfig from '../components/SearchUI/SearchConfig.svelte';
 ---
 
 <html lang="ja">
@@ -21,7 +21,8 @@ import PagefindConnect from "../components/Search/PagefindConnect.vue";
       </div>
     </header>
     <div class='contentSlot'>
-      <section class="searchSlot">
+      <section data-astro-transition-persist class="searchSlot">
+        <SearchConfig client:only="svelte" />
       </section>
       <section class="content">
         <slot />
