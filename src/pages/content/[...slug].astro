@@ -1,0 +1,31 @@
+---
+import { getCollection, render } from "astro:content";
+import SplitLayout from "../../layouts/SplitLayout.astro";
+
+export async function getStaticPaths() {
+  const bookEntries = await getCollection('dictionary');
+  return bookEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props;
+const { Content } = await render( entry );
+
+---
+
+<SplitLayout
+  title={entry.data.title}
+>
+  <h1>{entry.data.title}</h1>
+  <section class="mdxSection">
+    <Content />
+  </section>
+</Layout>
+
+<style lang="scss">
+  img {
+    max-width: 100%;
+  }
+</style>
