@@ -7,6 +7,7 @@
     new PagefindUI({
       element: ".search",
       showSubResults: true,
+      showImages: false,
       bundlePath: "https://ts.dictionary4.dev/content_search/",
       baseUrl: "/content/",
       pageSize: 8,
@@ -37,10 +38,5 @@
       --pagefind-ui-font: ZenMaru;
       --pagefind-ui-tag: rgba(0, 16, 72, 0.7);
     }
-  }
-
-  /* Pagefind UIの要素に適用されるスタイル */
-  .pagefind-ui__result-image {
-    background-color: white !important;
   }
 </style>
