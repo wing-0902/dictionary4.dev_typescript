@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import SplitLayout from "../../layouts/SplitLayout.astro";
+
+export async function getStaticPaths() {
+  const bookEntries = await getCollection('dictionary');
+  return bookEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props;
+---
+
+<SplitLayout
+  title=`403 Forbidden`
+>
+  <h1>{entry.data.title}</h1>
+</Layout>

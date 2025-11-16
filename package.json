@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "pagefind:full": "pagefind --site dist/content --output-path dist/content_search",
-    "postbuild": "npm run pagefind:full",
+    "pagefind:h1_only": "pagefind --site dist/h1_only --output-path dist/h1_only_search",
+    "postbuild": "npm run pagefind:full && pagefind:h1_only",
     "preview": "astro preview",
     "astro": "astro"
   },
