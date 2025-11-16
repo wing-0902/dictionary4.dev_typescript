@@ -8,6 +8,7 @@
       element: ".search",
       showSubResults: true,
       bundlePath: "https://ts.dictionary4.dev/content_search/",
+      baseUrl: "/content/",
       pageSize: 8,
     });
   });
