@@ -17,13 +17,13 @@
 </script>
 
 <section class="searchBox">
-  <div id="search"></div>
+  <div id="search" class='pagefindSlot'></div>
 </section>
 
 <style lang="scss">
   .searchBox {
     margin-top: 95px;
-    #search {
+    .pagefindSlot {
       --pagefind-ui-primary: var(--a-default);
       --pagefind-ui-primary-hover: var(--a-hover);
       --pagefind-ui-scale: 1;

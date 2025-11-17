@@ -5,7 +5,8 @@
 
   onMount(() => {
     new PagefindUI({
-      element: ".search",
+      element: "#search",
+      language: 'ja',
       showSubResults: true,
       showImages: false,
       bundlePath: 'https://js.dictionary4.dev/h1_only_search/',
@@ -16,13 +17,13 @@
 </script>
 
 <section class="searchBox">
-  <div class="search"></div>
+  <div id="search" class='pagefindSlot'></div>
 </section>
 
 <style lang="scss">
   .searchBox {
     margin-top: 95px;
-    .search {
+    .pagefindSlot {
       --pagefind-ui-primary: var(--a-default);
       --pagefind-ui-primary-hover: var(--a-hover);
       --pagefind-ui-scale: 1;
