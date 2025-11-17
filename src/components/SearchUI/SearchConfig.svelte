@@ -44,6 +44,7 @@
         height: 100%;
         border: 1px solid var(--themeColor);
         color: var(--themeColor);
+        font-family: var(--font-zen-kaku-gothic-new);
         &.isActive {
           background-color: color-mix(in srgb, var(--themeColor) 50%, white);
         }
