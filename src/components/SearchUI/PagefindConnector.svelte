@@ -1,14 +1,17 @@
-<script>
+<script lang='ts'>
   import { onMount } from "svelte";
   import { PagefindUI } from "@pagefind/default-ui";
   import "@pagefind/default-ui/css/ui.css";
+
+  const siteDomain: string = import.meta.env.PUBLIC_SITE_DOMAIN;
+  const pagefindBundlePath: string = `${siteDomain}/content_search/`;
 
   onMount(() => {
     new PagefindUI({
       element: ".search",
       showSubResults: true,
       showImages: false,
-      bundlePath: "https://ts.dictionary4.dev/content_search/",
+      bundlePath: pagefindBundlePath,
       baseUrl: "/content/",
       pageSize: 8,
     });
