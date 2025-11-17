@@ -3,16 +3,13 @@
   import { PagefindUI } from "@pagefind/default-ui";
   import "@pagefind/default-ui/css/ui.css";
 
-  const siteDomain = import.meta.env.PUBLIC_SITE_DOMAIN;
-  const pagefindBundlePath = `${siteDomain}/content_search/`;
-
   onMount(() => {
     new PagefindUI({
       element: "#search",
       language: 'ja',
       showSubResults: true,
       showImages: false,
-      bundlePath: pagefindBundlePath,
+      bundlePath: 'https://js.dictionary4.dev/content_search/',
       baseUrl: "/content/",
       pageSize: 8,
     });
