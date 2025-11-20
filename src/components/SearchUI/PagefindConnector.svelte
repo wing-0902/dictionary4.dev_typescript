@@ -16,6 +16,12 @@
   });
 </script>
 
-<section class="searchBox">
+<section class="root">
   <div id="search" class='pgSearch'></div>
 </section>
+
+<style lang="scss">
+  .root {
+    margin-top: 11px;
+  }
+</style>
