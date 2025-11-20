@@ -6,6 +6,7 @@ import '../styles/globals.scss';
 import '../styles/pagefindUi.scss';
 
 import SearchConfig from '../components/SearchUI/SearchConfig.svelte';
+import PagefindConnector from '../components/SearchUI/PagefindConnector.svelte';
 
 const defaultTitle: string = 'JavaScript - Dictionary for Developers'
 
@@ -57,7 +58,7 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
     </header>
     <div class='contentSlot'>
       <section data-astro-transition-persist class="searchSlot">
-        <SearchConfig client:load />
+        <PagefindConnector client:load />
       </section>
       <section class="content">
         <slot />

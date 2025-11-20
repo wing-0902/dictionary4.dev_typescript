@@ -1,54 +1,14 @@
 <script lang='ts'>
-  let isTitle: boolean = true;
-
-  function changeType(toWhich: boolean) {
-    isTitle = toWhich;
-  }
-
   import PagefindConnector from "./PagefindConnector.svelte";
-  import TitlePagefind from "./TitlePagefind.svelte";
 </script>
 
 <div class='root'>
-  <div class='searchConfigRow'>
-    <button
-      on:click={() => changeType(true)}
-      class:isActive={isTitle === true}
-    >
-      見出し
-    </button>
-    <button
-      on:click={() => changeType(false)}
-      class:isActive={isTitle === false}
-    >
-      用例・全文
-    </button>
-  </div>
-  {#if (isTitle === true)}
-    <TitlePagefind />
-  {:else if (isTitle === false)}
-    <PagefindConnector />
-  {:else}
-    <div>
-      <h2>エラーが発生しました．</h2>
-      <p>検索モードのボタンをクリックしても解決しない場合，ページを再読み込みしてください．</p>
-    </div>
-  {/if}
+  <PagefindConnector />
 </div>
 
 <style lang='scss'>
   .root {
     padding: 4px;
-    .searchText {
-      width: 100%;
-      input {
-        width: 100%;
-        box-sizing: border-box;
-        height: 40px;
-        font-family: var(--font-fira-code), var(--font-m-plus-1-code), monospace;
-        font-size: 25px;
-      }
-    }
     .searchConfigRow {
       display: flex;
       height: 30px;
