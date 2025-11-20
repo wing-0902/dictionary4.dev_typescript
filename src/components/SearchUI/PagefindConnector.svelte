@@ -167,6 +167,7 @@
       <p class='ステータス'>{searchResults.length}件の結果を表示</p>
       <ul class="results-list">
         {#each searchResults as result}
+          <hr />
           <li class="result-item">
             <a href="{result.url}?{PAGEFIND_OPTIONS.highlightParam}={encodeURIComponent(query)}">
               <h4>{result.meta.title || result.url}</h4>
@@ -187,6 +188,7 @@
               </ul>
             {/if}
         {/each}
+        <hr/>
       </ul>
     {:else if query && !loading}
       <p class="ステータス">結果が見つかりませんでした。</p>
