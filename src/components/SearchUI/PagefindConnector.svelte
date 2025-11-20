@@ -117,6 +117,8 @@
       if (query) {
         await fetchSearchResults(query);
       }
+      
+      // 4. ハイライト機能は削除したため、pagefind-highlight.jsのインポートと初期化は不要です。
 
     } catch (e) {
       console.error("Pagefind library or initialization failed.", e);
@@ -150,9 +152,9 @@
       <ul class="results-list">
         {#each searchResults as result}
           <li class="result-item">
-            <a href="{result.url}">
+            <a href="{PAGEFIND_OPTIONS.baseUrl}{result.url}">
               <h4>{result.meta.title || result.url}</h4>
-              <p class="excerpt">{result.excerpt}</p>
+              <p class="excerpt">{@html result.excerpt}</p>
             </a>
 
             {#if result.sub_results && result.sub_results.length > 0}
@@ -162,7 +164,7 @@
                     <li class="sub-result-item">
                       <a href="{PAGEFIND_OPTIONS.baseUrl}{subResult.url}">
                         <span class="sub-result-title">{subResult.title}</span>
-                        <span class="sub-result-excerpt"> — {subResult.excerpt}</span>
+                        <span class="sub-result-excerpt"> — {@html subResult.excerpt}</span>
                       </a>
                     </li>
                   {/if}
