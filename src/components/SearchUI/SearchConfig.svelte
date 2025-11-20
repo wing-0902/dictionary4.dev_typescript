@@ -58,7 +58,14 @@
   .root {
     padding: 4px;
     .searchText {
-      
+      width: 100%;
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        height: 40px;
+        font-family: var(--font-fira-code), var(--font-m-plus-1-code), monospace;
+        font-size: 25px;
+      }
     }
     .searchConfigRow {
       display: flex;
