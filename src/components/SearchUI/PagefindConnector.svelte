@@ -180,7 +180,6 @@
                     <li class="sub-result-item">
                       <a href="{subResult.url}">
                         <span class="sub-result-title">{subResult.title}</span>
-                        <span class="sub-result-excerpt"> — {@html subResult.excerpt}</span>
                       </a>
                     </li>
                   {/if}
