@@ -154,15 +154,15 @@
     {/if}
   </div>
 
-  <div class="search-output">
+  <div class="searchOutput">
     {#if loading}
-      <p>検索中...</p>
+      <p class='ステータス'>検索中...</p>
     {:else if query && searchResults.length > 0}
-      <p>{searchResults.length}件の結果を表示</p>
+      <p class='ステータス'>{searchResults.length}件の結果を表示</p>
       <ul class="results-list">
         {#each searchResults as result}
           <li class="result-item">
-            <a href="{PAGEFIND_OPTIONS.baseUrl}{result.url}">
+            <a href="{result.url}">
               <h4>{result.meta.title || result.url}</h4>
               <p class="excerpt">{@html result.excerpt}</p>
             </a>
@@ -172,7 +172,7 @@
                 {#each result.sub_results as subResult, index}
                   {#if index > 0} 
                     <li class="sub-result-item">
-                      <a href="{PAGEFIND_OPTIONS.baseUrl}{subResult.url}">
+                      <a href="{subResult.url}">
                         <span class="sub-result-title">{subResult.title}</span>
                         <span class="sub-result-excerpt"> — {@html subResult.excerpt}</span>
                       </a>
@@ -185,7 +185,7 @@
         {/each}
       </ul>
     {:else if query && !loading}
-      <p class="no-results">"{query}" に一致する結果は見つかりませんでした。</p>
+      <p class="ステータス">結果が見つかりませんでした．</p>
     {:else}
       {/if}
   </div>
@@ -211,6 +211,11 @@
         border: none;
         height: 40px;
         background: transparent;
+      }
+    }
+    .searchOutput {
+      .ステータス {
+        text-align: center;
       }
     }
   }
