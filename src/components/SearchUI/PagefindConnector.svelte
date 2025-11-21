@@ -173,7 +173,7 @@
           {#if result.sub_results && result.sub_results.length > 0}
             <ul class="サブ結果">
               {#each result.sub_results as subResult, index}
-                {#if index >= 0} 
+                {#if index > 0} 
                   <li class="中身">
                     <a href="{subResult.url}">
                       <h3 class="タイトル">{subResult.title}</h3>
@@ -184,7 +184,7 @@
             </ul>
           {/if}
         {/each}
-        <hr/>
+        <hr class='endHr'/>
       </ul>
     {:else if query && !loading}
       <p class="ステータス">結果が見つかりませんでした。</p>
@@ -225,6 +225,9 @@
         hr {
           margin-left: 30px;
         }
+        .endHr {
+          margin-top: 34px;
+        }
         .項目 {
           margin: 0 17px;
           .項目リンク {
@@ -256,6 +259,9 @@
                   text-decoration: underline;
                 }
               }
+            }
+            &:last-child {
+              margin-bottom: -24px;
             }
           }
         }
