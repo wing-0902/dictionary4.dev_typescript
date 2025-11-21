@@ -86,15 +86,12 @@
     if (newQuery) {
       // ?q=... を設定
       newUrl.searchParams.set('q', newQuery);
-      // ハイライト用のパラメータも設定 (highlightParam: "q" と同じ値を使用)
-      newUrl.searchParams.set(PAGEFIND_OPTIONS.highlightParam, newQuery);
     } else {
       // クエリが空なら両方のパラメータを削除
       newUrl.searchParams.delete('q');
-      newUrl.searchParams.delete(PAGEFIND_OPTIONS.highlightParam);
     }
     // ページをリロードせずにURLを更新
-    window.history.pushState({}, '', newUrl.toString());
+    window.history.replaceState({}, '', newUrl.toString());
   }
 
 

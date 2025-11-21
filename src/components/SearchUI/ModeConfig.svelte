@@ -21,7 +21,7 @@
     if (newQuery) {
       newUrl.searchParams.set('m', newQuery);
     }
-    window.history.pushState({}, '', newUrl.toString());
+    window.history.replaceState({}, '', newUrl.toString());
   }
 </script>
 
