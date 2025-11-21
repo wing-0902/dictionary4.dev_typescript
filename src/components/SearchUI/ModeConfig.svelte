@@ -32,6 +32,11 @@
     見出し
   </button>
   <button
+    on:click={() => changeMode('用例')}
+  >
+    用例
+  </button>
+  <button
     on:click={() => changeMode('全文')}
   >
     全文

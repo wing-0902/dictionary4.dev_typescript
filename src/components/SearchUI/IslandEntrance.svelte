@@ -2,12 +2,14 @@
   import ModeConfig from "./ModeConfig.svelte";
   import PagefindConnector from "./PagefindConnector.svelte";
   import TitlePagefind from "./TitlePagefind.svelte";
+  import CodePagefind from "./CodePagefind.svelte";
 
   let searchMode: string = '見出し'
 
   $: SearchComponent =
     searchMode === '見出し' ? TitlePagefind :
     searchMode === '全文' ? PagefindConnector :
+    searchMode === '用例' ? CodePagefind :
     TitlePagefind;
 </script>
 
