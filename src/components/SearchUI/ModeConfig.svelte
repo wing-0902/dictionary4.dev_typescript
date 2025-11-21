@@ -55,6 +55,7 @@
       font-size: 14px;
       margin: 0;
       height: 28px;
+      border: 1px solid var(--foreground);
       &:first-child {
         border-radius: 14px 0 0 14px;
       }
