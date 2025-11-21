@@ -14,7 +14,7 @@
 
   // PagefindUIのオプションに基づいた設定
   const PAGEFIND_OPTIONS = {
-    bundlePath: 'https://tsdict.mdmbypass.wing.osaka/content_search/',
+    bundlePath: 'https://js.dictionary4.dev/content_search/',
     baseUrl: "/content/",
     pageSize: 8,
     // highlightParamは検索結果のハイライト処理にカスタムで使用します
