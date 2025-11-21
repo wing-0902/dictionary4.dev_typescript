@@ -1,7 +1,27 @@
 <script lang='ts'>
+  import { onMount } from "svelte";
+
   export let searchMode: string;
   function changeMode(toMode: string) {
     searchMode = toMode;
+    updateUrl(toMode);
+  }
+
+  onMount(async () => {
+    //1. URLから初期クエリを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('m') ?? '見出し';
+    searchMode = initialQuery;
+  })
+
+  function updateUrl(newQuery: string) {
+    if (typeof window === 'undefined') return;
+
+    const newUrl = new URL(window.location.href);
+    if (newQuery) {
+      newUrl.searchParams.set('m', newQuery);
+    }
+    window.history.pushState({}, '', newUrl.toString());
   }
 </script>
 
