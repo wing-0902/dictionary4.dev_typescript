@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import './searchUi.scss';
-  import addQuery from './addQuery.mts';
+  import { addQuery } from './addQuery.mts';
   
   /** 検索クエリを保持する変数 */
   let query = '';
@@ -81,18 +81,16 @@
    * @param newQuery 更新後のクエリ
    */
   function updateUrl(newQuery: string) {
-    if (typeof window === 'undefined') return;
+    const current = new URLSearchParams(window.location.search).get("q") ?? "";
+    if (current === newQuery) return;
 
-    const newUrl = new URL(window.location.href);
+    const url = new URL(window.location.href);
     if (newQuery) {
-      // ?q=... を設定
-      newUrl.searchParams.set('q', newQuery);
+      url.searchParams.set('q', newQuery);
     } else {
-      // クエリが空なら両方のパラメータを削除
-      newUrl.searchParams.delete('q');
+      url.searchParams.delete('q');
     }
-    // ページをリロードせずにURLを更新
-    window.history.replaceState({}, '', newUrl.toString());
+    window.history.replaceState({}, '', url.toString());
   }
 
 
@@ -136,7 +134,7 @@
     <input 
       type="search" 
       placeholder="検索語句を入力" 
-      value={query} 
+      bind:value={query} 
       on:input={handleInput}
       aria-label="検索語句を入力"
     />
@@ -165,10 +163,12 @@
           <li class="項目">
             <a
               class='項目リンク'
-              href={addQuery(result.url, {
-                q: query,
-                m: '見出し'
-              })}
+              href={/*addQuery(result.url, {
+                'q': query,
+                'm': '見出し',
+              })*/
+                result.url
+              }
             >
               <h2>{result.meta.title || result.url}</h2>
             </a>
