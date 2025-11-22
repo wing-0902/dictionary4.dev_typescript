@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
   import './searchUi.scss';
+  import addQuery from './addQuery.mts';
   
   /** 検索クエリを保持する変数 */
   let query = '';
@@ -162,7 +163,13 @@
         {#each searchResults as result}
           <hr />
           <li class="項目">
-            <a class='項目リンク' href="{result.url}">
+            <a
+              class='項目リンク'
+              href={addQuery(result.url, {
+                q: query,
+                m: '見出し'
+              })}
+            >
               <h2>{result.meta.title || result.url}</h2>
             </a>
           </li>
