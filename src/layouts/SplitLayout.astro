@@ -5,6 +5,8 @@ import { Font } from "astro:assets";
 import '../styles/globals.scss';
 
 import Sidebar from "../components/Sidebar.astro";
+import Topbar from "../components/LayoutUI/Topbar.astro";
+import Underbar from '../components/LayoutUI/Underbar.astro';
 
 const defaultTitle: string = 'JavaScript - Dictionary for Developers'
 
@@ -59,7 +61,16 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
         <Sidebar />
       </section>
       <section class="content">
-        <slot />
+        <div class="topbar">
+          <Topbar />
+        </div>
+        <div class="余白"></div>
+        <div class="slot">
+          <slot />
+        </div>
+        <div class="underbar">
+          <Underbar />
+        </div>
       </section>
     </div>
   </body>
@@ -89,6 +100,30 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
         border-left: 0.5px solid var(--borderColor);
         width: calc(100vw - var(--searchWidth));
         height: 100%;
+        position: relative;
+        .topbar {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 33px;
+        }
+        .余白 {
+          height: 33px;
+        }
+        .slot {
+          position: absolute;
+          height: calc(100% - 66px);
+          width: 100%;
+          overflow-y: scroll;
+        }
+        .underbar {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 33px;
+        }
       }
     }
   }
