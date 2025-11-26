@@ -144,8 +144,17 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
   @media (max-width: 830px) {
     body {
       .contentSlot {
-        .content {
-
+        .hideSearchSlot {
+          display: none !important;
+        }
+        .showSearchSlot {
+          width: 100vw !important;
+        }
+        .showContent {
+          width: 100vw !important;
+        }
+        .hideContent {
+          display: none !important;
         }
       }
     }
