@@ -62,13 +62,12 @@ const 正規URL = new URL(Astro.url.pathname, Astro.site).href;
     </header>
     <div class='contentSlot'>
       <section
-        data-astro-transition-persist
         class={`
           searchSlot
           ${showContent === true ? 'hideSearchSlot' : 'showSearchSlot'}
         `} 
       >
-        <Sidebar />
+        <Sidebar data-astro-transition-persist />
       </section>
       <section
         class={`
