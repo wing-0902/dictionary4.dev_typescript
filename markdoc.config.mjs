@@ -13,7 +13,7 @@ export default defineMarkdocConfig({
   },
   extends: [
     shiki({
-      theme: 'github-dark',
+      theme: 'github-dark-high-contrast',
       wrap: true,
       langs: [],
     }),

@@ -43,5 +43,19 @@ const { Content } = await render( entry );
       margin: 0;
       list-style-position: inside;
     }
+    
+    /* ライトテーマ */
+    @media (prefers-color-scheme: light) {
+      .shiki {
+        color-scheme: light;
+      }
+    }
+
+    /* ダークテーマ */
+    @media (prefers-color-scheme: dark) {
+      .shiki {
+        color-scheme: dark;
+      }
+    }
   }
 </style>
