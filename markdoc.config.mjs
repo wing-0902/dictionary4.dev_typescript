@@ -1,4 +1,4 @@
-import { defineMarkdocConfig, component } from '@astrojs/markdoc/config';
+import { defineMarkdocConfig, nodes, component } from '@astrojs/markdoc/config';
 import shiki from '@astrojs/markdoc/shiki';
 
 export default defineMarkdocConfig({
@@ -18,4 +18,10 @@ export default defineMarkdocConfig({
       langs: [],
     }),
   ],
+  nodes: {
+    image: {
+      ...nodes.image, 
+      renred: component('./src/components/MarkdocImage.astro'),
+    },
+  },
 });
