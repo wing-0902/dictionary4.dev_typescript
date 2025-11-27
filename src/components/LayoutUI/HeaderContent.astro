@@ -1,5 +1,31 @@
 ---
-
+import Search from "../Icons/Search.svg.astro";
+import List from "../Icons/List.svg.astro";
 ---
 
-<div></div>
+<div class="root">
+  <div class="dummy"></div>
+  <div class="nav">
+    <a>
+      <List />
+    </a>
+    <a href="/">
+      <Search />
+    </a>
+  </div>
+  <div class="clickHere">
+
+  </div>
+</div>
+
+<style lang="scss">
+  .root {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    .dummy {}
+    .nav {}
+    .clickHere {}
+  }
+</style>
