@@ -21,8 +21,6 @@ const dictEntries = await getCollection('dictionary', ({ data }) => {
             <p>{dictEntry.data.title}</p>
           </div>
         </a>
-
-        
       ))}
     </div>
   </div>
@@ -31,10 +29,18 @@ const dictEntries = await getCollection('dictionary', ({ data }) => {
 <style lang="scss">
   .parent {
     margin: 10px;
-    max-width: 100%;
+    width: calc(100% + 200px);
+    padding: auto;
     .children {
+      max-width: 100%;
+      margin: auto;
+      display: flex !important;
+      flex-wrap: wrap;
       a {
         border: 0.2px solid var(--foreground);
+        font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
+        color: var(--foreground);
+        text-decoration: none;
         div {
           width: 80px;
           height: 80px;
