@@ -16,7 +16,7 @@ const dictEntries = await getCollection('dictionary', ({ data }) => {
   <div class="parent">
     <div class="children">
       {dictEntries.map(dictEntry => (
-        <a href=`/dictinary/${dictEntry.slug}/` >
+        <a href=`/content/${dictEntry.slug}/` >
           <div>
             <p>{dictEntry.data.title}</p>
           </div>
