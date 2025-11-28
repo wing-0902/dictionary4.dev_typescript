@@ -59,9 +59,12 @@ export default defineConfig({
           {pattern: '/code_only_search/*'},
           {pattern: '/content_search/*'},
           {pattern: '/title_only_search/*'},
-        ]
+        ],
+        include: [
+          {pattern: '/api/*'},
+        ],
       }
-    }
+    },
   }),
   output: 'static',
 });
