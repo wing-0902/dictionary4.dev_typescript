@@ -45,7 +45,7 @@
 
     try {
       // fetch APIを使ってサーバーにPOSTリクエストを送信
-      const response = await fetch('https://form-workers.wing.osaka', {
+      const response = await fetch('/form/', {
         method: 'POST',
         body: formData,
       });
@@ -115,95 +115,5 @@
 </div>
 
 <style lang="scss">
-  input[type="radio"] {
-    display: none;
-  }
-
-  legend, input, textarea {
-    font-family: ZenMaru;
-    font-size: 1em;
-    background: transparent;
-    color: var(--foreground);
-  }
-  legend {
-    text-align: center;
-  }
-  fieldset, input, textarea {
-    border: 2px solid var(--foregroundSub);
-    border-radius: 17px 5px;
-  }
-
-  .spacer {
-    display: flex;
-    justify-content: center;
-    label {
-      width: 120px;
-      text-align: right;
-    }
-    input {
-      width: 380px;
-      margin-left: 10px;
-    }
-  }
-  @media (max-width: 550px) {
-    .spacer {
-      flex-direction: column;
-      label {
-        width: 100%;
-        text-align: left;
-      }
-      input {
-        width: 100%;
-        margin: 0;
-        box-sizing: border-box;
-      }
-    }
-  }
-  textarea {
-    width: 100%;
-    height: 100px;
-    box-sizing: border-box;
-  }
-  .submitBtnBox {
-    display: flex;
-    justify-content: center;
-    button {
-      width: 100px;
-      height: 38px;
-      font-family: ZenMaru;
-      font-size: 1.13em;
-      margin-top: 10px;
-      border: 2px solid var(--button-hover-border);
-      background-color: var(--button-background);
-      border-radius: 17px 8px;
-      color: var(--foreground);
-    }
-  }
-  #email {
-    font-family: FiraCode;
-  }
-  input[type="text"]:focus,
-  textarea:focus {
-    border-color: var(--a-hover);
-    outline: none;
-    color: var(--a-default);
-  }
-
-  /* WebKit */
-  ::-webkit-input-placeholder {
-    color: var(--foregroundSub);
-    opacity: 0.6;
-  }
-
-  /* Firefox */
-  ::-moz-placeholder {
-    color: var(--foregroundSub); /* 任意のカラーコード */
-    opacity: 0.6; /* ★重要：Firefoxでの薄さを解消 */
-  }
-
-  /* 共通 */
-  ::placeholder {
-    color: var(--foregroundSub);
-    opacity: 0.6;
-  }
+  
 </style>
