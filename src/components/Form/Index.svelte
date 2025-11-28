@@ -45,7 +45,7 @@
 
     try {
       // fetch APIを使ってサーバーにPOSTリクエストを送信
-      const response = await fetch('/form/', {
+      const response = await fetch('/api/form', {
         method: 'POST',
         body: formData,
       });
