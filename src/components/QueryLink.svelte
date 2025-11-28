@@ -22,3 +22,12 @@
 >
   <slot />
 </a>
+
+<style lang="scss">
+  a {
+    text-decoration: none;
+    &:active {
+      text-decoration: underline;
+    }
+  }
+</style>
