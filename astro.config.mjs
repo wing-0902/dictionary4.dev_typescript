@@ -8,6 +8,8 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import markdoc from '@astrojs/markdoc';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://js.dictionary4.dev',
@@ -31,6 +33,7 @@ export default defineConfig({
       },
     ]
   },
+
   markdown: {
     syntaxHighlight: false,
     rehypePlugins: [
@@ -42,4 +45,7 @@ export default defineConfig({
       ]
     ],
   },
+
+  adapter: cloudflare(),
+  output: 'static',
 });
