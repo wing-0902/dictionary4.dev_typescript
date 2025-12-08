@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /h1_only/
+Allow: /
+Disallow: /form/
+Sitemap: https://js.dictionary4.dev/sitemap-index.xml
