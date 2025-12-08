@@ -46,22 +46,23 @@ const nameOnly = packageName.split('@').slice(0, -1).join('@');
 >
   <div class='root'>
     <h1>{packageName}</h1>
-    <p>このページは，ビルド時に{nameOnly}専用に生成されました．</p>
+    <p>このページは，ビルド時に<span class="code">{nameOnly}</span>専用に生成されました．</p>
 
     <h2>ライセンス情報</h2>
     <ul>
-      <li>{packageData.licenses} License</li>
+      <li class='code'>{packageData.licenses} License</li>
       <li>リポジトリ：
         <a
           href={packageData.repository}
           target='_blank'
+          class="code"
         >
           {packageData.repository}
         </a>
       </li>
-      {packageData.publisher && <li>発行者：{packageData.publisher}</li>}
-      {packageData.email && <li>電子メイル：<a href=`mailto:${packageData.email}` >{packageData.email}</a></li>}
-      {packageData.url && <li>URL：<a href={packageData.url} target='_blank'>{packageData.url}</a></li>}
+      {packageData.publisher && <li>発行者：<span class="code">{packageData.publisher}</span></li>}
+      {packageData.email && <li>電子メイル：<a class='code' href=`mailto:${packageData.email}` >{packageData.email}</a></li>}
+      {packageData.url && <li>URL：<a href={packageData.url} target='_blank' class="code">{packageData.url}</a></li>}
     </ul>
 
     {packageData.licenseFile &&
@@ -96,5 +97,8 @@ const nameOnly = packageName.split('@').slice(0, -1).join('@');
         overflow-x: auto;
       }
     }
+  }
+  code, .code {
+    font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
   }
 </style>

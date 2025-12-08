@@ -14,7 +14,7 @@ const licenseEntries = Object.entries(licenseData);
         <li>
           <a href=`/license/${encodeURIComponent(pkgName)}` >
             <h3>{pkgName}</h3>
-            <span>ライセンス：{pkgInfo.licenses}</span>
+            <span>{pkgInfo.licenses} License</span>
           </a>
         </li>
       ))
@@ -29,6 +29,7 @@ const licenseEntries = Object.entries(licenseData);
     }
     p {
       font-size: 15px;
+      text-align: center;
     }
     ul {
       li {
@@ -38,6 +39,9 @@ const licenseEntries = Object.entries(licenseData);
             font-size: 16px;
             margin-bottom: 0;
             filter: brightness(120%);
+          }
+          h3, span{
+            font-family: var(--font-fira-code), var(--font-zen-kaku-gothic-new), monospace;
           }
           span {
             font-size: 15px;
