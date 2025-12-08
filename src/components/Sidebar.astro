@@ -15,7 +15,7 @@ const {
 } = Astro.props;
 ---
 
-<div>
+<div class='root'>
   {(() => {
     if (content === 'ライセンス') {
       return (
@@ -35,3 +35,10 @@ const {
     }
   })()}
 </div>
+
+<style lang='scss'>
+  .root {
+    height: calc(100dvh - var(--headerHeight));
+    overflow: scroll;
+  }
+</style>

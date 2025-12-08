@@ -2,9 +2,19 @@
 import licenseData from '../../data/license-data.json';
 
 const packagesCounter = Object.keys(licenseData).length;
+const licenseEntries = Object.entries(licenseData);
 ---
 
 <section>
   <h2>ライセンス一覧</h2>
   <p>{packagesCounter}個のライセンスを表示中</p>
+  <ul>
+    {
+      licenseEntries.map(([pkgName, pkgInfo]) => (
+        <li>
+          <h3>{pkgName}</h3>
+        </li>
+      ))
+    }
+  </ul>
 </section>
