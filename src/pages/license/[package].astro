@@ -9,7 +9,7 @@ export async function getStaticPaths () {
   return licenseEntries.map(([pkgName, pkgInfo]) => {
     return {
       params: { 
-        package: pkgName
+        package: encodeURIComponent(pkgName)
       }, 
       props: { 
         packageData: pkgInfo, 
@@ -20,7 +20,28 @@ export async function getStaticPaths () {
 }
 
 const { packageData, packageName } = Astro.props;
+const nameOnly = packageName.split('@').slice(0, -1).join('@');
 ---
 
-<SplitLayout>
+<SplitLayout
+  title=`${packageName} - ライセンス`
+  topbarTitle={nameOnly}
+  leftComponent='ライセンス'
+>
+  <h1>{packageName}</h1>
+  <p>このページは，ビルド時に{nameOnly}専用に生成されました．</p>
+
+  <h2>ライセンス情報</h2>
+  <ul>
+    <li>{packageData.licenses} License</li>
+    <li>リポジトリ：
+      <a
+        href={packageData.repository}
+        target='_blank'
+      >
+        {packageData.repository}
+      </a>
+    </li>
+    <li>発行者：{packageData.publisher}</li>
+  </ul>
 </SplitLayout>
