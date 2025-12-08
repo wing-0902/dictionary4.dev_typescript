@@ -23,7 +23,7 @@ export async function getStaticPaths () {
 
     return {
       params: { 
-        package: encodeURIComponent(pkgName.replace(/\//g, '-'))
+        package: pkgName.replace(/\//g, '-')
       }, 
       props: { 
         packageData: pkgInfo, 

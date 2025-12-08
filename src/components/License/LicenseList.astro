@@ -12,7 +12,7 @@ const licenseEntries = Object.entries(licenseData);
     {
       licenseEntries.map(([pkgName, pkgInfo]) => (
         <li>
-          <a href=`/license/${encodeURIComponent(pkgName.replace(/\//g, '-'))}` >
+          <a href=`/license/${pkgName.replace(/\//g, '-')}` >
             <h3>{pkgName}</h3>
             <span>{pkgInfo.licenses} License</span>
           </a>
