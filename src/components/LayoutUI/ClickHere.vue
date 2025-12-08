@@ -9,6 +9,23 @@
   function changeStatus() {
     hidden.value = !hidden.value;
   }
+
+  const copyScheme: string = 'js.dictionary4.dev/?q=<文字列>'
+
+  function URLスキームをコピー() {
+    event.preventDefault();
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(copyScheme)
+        .then(() => {
+          alert(`URLスキームをコピーしました．\nURLスキーム：${copyScheme}`);
+        })
+        .catch(err => {
+          console.error("コピーに失敗しました: ", err);
+        });
+    } else {
+      alert('この環境では利用できません．')
+    }
+  }
 </script>
 
 <template>
@@ -29,7 +46,7 @@
       <a href='/license/'>その他のライセンス</a>
     </div>
     <div class='rowGr'>
-      <a>URLスキームをコピー</a>
+      <a @click='URLスキームをコピー'>URLスキームをコピー</a>
     </div>
   </div>
   <div
@@ -69,14 +86,22 @@
     }
     .rowGr {
       color: var(--foreground);
-      margin: 21px 0;
+      margin: 21px 10px;
       display: flex;
       flex-direction: column;
       a, button {
         color: var(--foreground);
         font-size: 15px;
-        margin: 7px 15px;
+        padding: 7px 15px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-decoration: none;
+        &:hover {
+          border-radius: 30px;
+          background: var(--codeBack);
+        }
       }
     }
   }
