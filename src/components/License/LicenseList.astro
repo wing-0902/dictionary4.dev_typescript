@@ -21,3 +21,36 @@ const licenseEntries = Object.entries(licenseData);
     }
   </ul>
 </section>
+
+<style lang='scss'>
+  section {
+    h2 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 15px;
+    }
+    ul {
+      li {
+        a {
+          text-decoration: none;
+          h3 {
+            font-size: 16px;
+            margin-bottom: 0;
+            filter: brightness(120%);
+          }
+          span {
+            font-size: 15px;
+            filter: brightness(120%);
+          }
+          &:hover {
+            h3 {
+              text-decoration: underline;
+              filter: brightness(100%);
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

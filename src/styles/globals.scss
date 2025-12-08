@@ -14,7 +14,8 @@
 
 a {
   color: var(--themeColor);
+  filter: brightness(120%);
   &:hover {
-    filter: brightness(80%);
+    filter: brightness(100%);
   }
 }
