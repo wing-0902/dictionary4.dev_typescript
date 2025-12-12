@@ -3,7 +3,7 @@
   --background: #16171d;
   --borderColor: rgb(97, 97, 97);
   --themeColor: #3178C6;
-  --codeBack: #282A36;
+  --codeBack: #011627;
 
   --headerHeight: 45px;
   --searchWidth: 320px;
@@ -18,4 +18,8 @@ a {
   &:hover {
     filter: brightness(100%);
   }
+}
+
+code {
+  font-family: var(--font-fira-code), var(--font-m-plus-1-code), monospace;
 }

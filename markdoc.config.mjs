@@ -14,7 +14,7 @@ export default defineMarkdocConfig({
   },
   extends: [
     shiki({
-      theme: 'dracula',
+      theme: 'night-owl',
       wrap: true,
       langs: [],
       transformers: [
