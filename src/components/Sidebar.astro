@@ -2,6 +2,8 @@
 import SearchIslandEntrance from './SearchUI/IslandEntrance.svelte';
 import LicenseList from './License/LicenseList.astro';
 
+import LicenseSearch from './License/LicenseSearch.astro';
+
 import { getCollection } from 'astro:content';
 
 const dictEntries = await getCollection('dictionary');
@@ -20,7 +22,7 @@ const {
     if (content === 'ライセンス') {
       return (
         <>
-          <LicenseList />
+          <LicenseSearch />
         </>
       );
     } else {

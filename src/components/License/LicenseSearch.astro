@@ -1,0 +1,39 @@
+---
+import licenseData from '../../data/license-data.json';
+
+import { packageTitle } from '../../config.mts';
+
+const rawEntries = Object.keys(licenseData);
+const licenseEntries = rawEntries.filter(
+  ([pkgName]) => pkgName.split('@').slice(0, -1).join('@') !== packageTitle
+);
+---
+
+<section>
+  <h2>ライセンス一覧</h2>
+  <div
+    x-data="{
+      search: '',
+      licenseItems: $el.dataset.licenseEntries,
+
+      get filteredItems() {
+        return this.licenseItems.filter(
+          ([pkgName]) => pkgName.include(this.search)
+        )
+      }
+    }"
+    data-licenseEntries={licenseEntries}
+  >
+    <input x-model='search' placeholder='Search...' />
+
+    <ul>
+      <template x-for="item in licenseItems" :key="item">
+        <li>
+          <a>
+            <h3 x-text="item.pkgName"></h3>
+          </a>
+        </li>
+      </template>
+    </ul>
+  </div>
+</section>
