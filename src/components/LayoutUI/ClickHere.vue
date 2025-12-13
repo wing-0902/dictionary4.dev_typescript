@@ -42,7 +42,7 @@
     class='menuSlot'>
     <div class='rowGr'>
       <a href='/license/app/'>このアプリについて</a>
-      <a href="/license/contents/">コンテンツについて</a>
+      <a href="/license/contents/">コンテンツの著作権</a>
       <a href='/license/'>その他のライセンス</a>
     </div>
     <div class='rowGr'>
