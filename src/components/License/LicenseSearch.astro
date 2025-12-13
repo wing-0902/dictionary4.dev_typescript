@@ -20,22 +20,35 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
     class="alpinejs-slot"
     data-astro-transition-persist
     x-data="{
-      search: $persist('').as('licenseSearch').using(sessionStorage),
+  search: $persist('').as('licenseSearch').using(sessionStorage),
 
-      licenseItems: JSON.parse($el.dataset.licenseEntries), 
+  licenseItems: JSON.parse($el.dataset.licenseEntries), 
 
-      get filteredItems() {
-        if (this.search === '') {
-          return this.licenseItems;
-        }
+  get filteredItems() {
+    if (this.search === '') {
+      return this.licenseItems;
+    }
 
-        const lowerSearch = this.search.toLowerCase();
+    const searchKeywords = this.search
+      .split(/[ 　]+/)
+      .filter(keyword => keyword.length > 0)
+      .map(keyword => keyword.toLowerCase());
 
-        return this.licenseItems.filter(
-          ([pkgName]) => pkgName.toLowerCase().includes(lowerSearch) 
-        )
+    if (searchKeywords.length === 0) {
+      return this.licenseItems;
+    }
+
+    return this.licenseItems.filter(
+      ([pkgName]) => {
+        const lowerPkgName = pkgName.toLowerCase();
+
+        return searchKeywords.every(keyword => 
+          lowerPkgName.includes(keyword)
+        );
       }
-    }"
+    )
+  }
+}"
   >
     <div class="alpineSearch">
       <input x-model='search' placeholder='検索...' />
