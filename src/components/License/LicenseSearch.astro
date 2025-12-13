@@ -20,7 +20,7 @@ const licenseEntriesJson = JSON.stringify(licenseEntries);
     class="alpinejs-slot"
     data-astro-transition-persist
     x-data="{
-      search: '',
+      search: $persist('').as('licenseSearch'),
 
       licenseItems: JSON.parse($el.dataset.licenseEntries), 
 
