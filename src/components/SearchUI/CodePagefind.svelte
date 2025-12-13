@@ -198,6 +198,9 @@
       </ul>
     {:else if query && !loading}
       <p class="ステータス">{結果なし}</p>
+    {:else}
+      <p class='ステータス'>入力して検索</p>
+      <p class='helpMessage'>このモードでは，コードブロック内の用例だけを検索できます．</p>
     {/if}
   </div>
 </section>

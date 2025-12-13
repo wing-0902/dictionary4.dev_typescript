@@ -40,6 +40,18 @@
       text-align: center;
       margin: 8px;
       font-size: 14px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .helpMessage {
+      height: calc(100% - 50px - 68px - 8px - 10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto 8px;
+      text-align: center;
     }
     .結果一覧 {
       list-style-type: none;
