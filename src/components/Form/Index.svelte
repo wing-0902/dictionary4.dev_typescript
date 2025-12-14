@@ -11,7 +11,6 @@
   let email: string = '';
   let comment: string = '';
   let rate: number = 0;
-  let turnstileToken: string | null = null;
 
   function isValidEmail(email: string) {
     const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -24,7 +23,7 @@
     &&
     rate <= 5
     &&
-    email === '' || isValidEmail(email)
+    email === ''
 
   async function handleSubmit(event: Event) {
     event?.preventDefault();
@@ -77,6 +76,8 @@
 </script>
 
 <div>
+  <p>{email}</p>
+  <p>{rate}</p>
   <p>{isValid}</p>
   <form on:submit={handleSubmit}>
     <fieldset>
@@ -118,7 +119,7 @@
       <label for='comment'>編集部へのメッセージ，ご意見など，ご自由にお書きください．</label><br />
       <textarea placeholder='ここにコメントを入力' id='comment' name='comment' bind:value={comment}></textarea>
     </fieldset>
-    <Turnstile siteKey='0x4AAAAAACDaRh_Fzk8DXhP1' bind:response={turnstileToken} />
+    <Turnstile siteKey='0x4AAAAAACDaRh_Fzk8DXhP1' />
     <div class='submitBtnBox'>
       <button type='submit'>
         送信
