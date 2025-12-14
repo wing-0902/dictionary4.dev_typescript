@@ -1,19 +1,31 @@
 <script lang="ts">
+    import { formDataToObject } from 'astro:actions';
+
   // インポート
   import Required from './Required.svelte';
   import Star from './Star.svelte';
   import { Turnstile } from 'svelte-turnstile';
 
-  // 型を定義
-  type IntegerFrom0To5 = 0 | 1 | 2 | 3 | 4 | 5;
-
   // フォーム内で使用する変数
   let username: string = '';
   let email: string = '';
   let comment: string = '';
-  let rate: IntegerFrom0To5 = 0;
+  let rate: number = 0;
+  let turnstileToken: string | null = null;
 
-  // handleSubmit関数
+  function isValidEmail(email: string) {
+    const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    
+    return pattern.test(email);
+}
+
+  $: isValid = 
+    rate >= 1
+    &&
+    rate <= 5
+    &&
+    email === '' || isValidEmail(email)
+
   async function handleSubmit(event: Event) {
     event?.preventDefault();
 
@@ -65,6 +77,7 @@
 </script>
 
 <div>
+  <p>{isValid}</p>
   <form on:submit={handleSubmit}>
     <fieldset>
       <legend>あなたについて</legend>
@@ -105,7 +118,7 @@
       <label for='comment'>編集部へのメッセージ，ご意見など，ご自由にお書きください．</label><br />
       <textarea placeholder='ここにコメントを入力' id='comment' name='comment' bind:value={comment}></textarea>
     </fieldset>
-    <Turnstile siteKey='0x4AAAAAACDaRh_Fzk8DXhP1' />
+    <Turnstile siteKey='0x4AAAAAACDaRh_Fzk8DXhP1' bind:response={turnstileToken} />
     <div class='submitBtnBox'>
       <button type='submit'>
         送信
